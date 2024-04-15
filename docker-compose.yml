@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend  # Path to the directory containing your React frontend Dockerfile
+    ports:
+      - "3000:3000"  # Map port 3000 on your host machine to port 3000 on the frontend container
+    depends_on:
+      - backend  # Ensure that the backend service is started before the frontend
+
+  backend:
+    build: ./backend  # Path to the directory containing your Flask backend Dockerfile
+    ports:
+      - "5000:5000"  # Map port 5000 on your host machine to port 5000 on the backend container
